@@ -4,7 +4,10 @@ from config import Config
 from database.db import init_db
 
 # Initialize Flask application
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
+)
 app.config.from_object(Config)
 
 # Ensure essential directories exist
